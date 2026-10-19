@@ -17,12 +17,25 @@ HERE = Path(__file__).parent
 W, H = 1280, 670
 SANS = HERE / "fonts" / "NotoSansJP.ttf"
 SERIF = HERE / "fonts" / "NotoSerifJP.ttf"
+# 作品名の書体（shows.json の "font"）。axes は可変フォントの軸の値
+TITLE_FONTS = {
+    "serif": (SERIF, [900]),
+    "sans": (SANS, [900]),
+    "rounded": (HERE / "fonts" / "MPLUSRounded1c-Black.ttf", None),
+    "archivo": (HERE / "fonts" / "Archivo.ttf", [900, 125]),  # 太さ900・幅125
+}
 
 
-def font(path, size, weight):
+def font(path, size, weight=None, axes=None):
     f = ImageFont.truetype(str(path), size)
-    f.set_variation_by_axes([weight])
+    if axes or weight:
+        f.set_variation_by_axes(axes or [weight])
     return f
+
+
+def title_font(kind, size):
+    path, axes = TITLE_FONTS[kind]
+    return font(path, size, axes=axes)
 
 
 def contrast(a, b):
@@ -53,9 +66,16 @@ def make(show, label, out, mark=None):
     d.text((70, 82), "ドラマ倶楽部", font=small, fill=s["sub"], anchor="lm")
     d.text((1215, 82), s["slot"], font=small, fill=s["sub"], anchor="rm")
 
+    # 作品名：最大150px。改行（\n）で2行にできる。横幅1140pxに収まるまで小さくする
     title = s["title"]
-    size = s.get("title_size", 150 if len(title) <= 8 else 110)
-    d.text((W // 2, 335), title, font=font(SERIF, size, 900), fill=s["fg"], anchor="mm")
+    kind = s.get("font", "serif")
+    size = s.get("title_size", 150)
+    while True:
+        tf = title_font(kind, size)
+        if max(d.textlength(line, font=tf) for line in title.split("\n")) <= 1140 or size <= 60:
+            break
+        size -= 4
+    d.multiline_text((W // 2, 335), title, font=tf, fill=s["fg"], anchor="mm", align="center", spacing=size * 0.12)
 
     bf = font(SANS, 46, 700)
     tw = d.textlength(label, font=bf)
