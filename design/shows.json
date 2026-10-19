@@ -7,6 +7,6 @@
   "LOST10": {
     "title": "LOST10", "slot": "TBS 金22時",
     "bg": "#F5F5F3", "diagonal": "#DDDDDB", "fg": "#0A0A0E", "sub": "#0A0A0E",
-    "accent": "#2A6A5E", "on_accent": "#FFFFFF"
+    "accent": "#2A6A5E", "on_accent": "#FFFFFF", "mark": "#DDDDDB"
   }
 }
