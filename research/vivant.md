@@ -15,7 +15,7 @@
 - 『チンギス―VIVANT THE ORIGIN STORY―』の主題歌は、なとり「pupa」（書き下ろし） — https://www.sonymusic.co.jp/artist/natori/info/587186
 
 ## 人物
-- チンギス：バルサラハガバ・バトボルド。前作ではバルカ警察の警察官で、最初は爆破事件の容疑者として乃木たちをしつこく追った。その後、野崎と協力関係に。第2シーズンは15話と21話に登場 — https://ja.wikipedia.org/wiki/VIVANT （Wikipedia）／俳優名は https://news.yahoo.co.jp/articles/b49a27d5025fa7c2aa45ee92d3d1f8270bef1888
+- チンギス：バルサラハガバ・バトボルド。前作1〜3話で乃木たちを執拗に追い、銃を向けた（ニュースで確認：https://www.sakigake.jp/news/article/20260816OR0115/ 秋田魁新報 8/16）。前作ではバルカ警察の警察官で、最初は爆破事件の容疑者として乃木たちをしつこく追った。その後、野崎と協力関係に。第2シーズンは15話と21話に登場 — https://ja.wikipedia.org/wiki/VIVANT （Wikipedia）／俳優名は https://news.yahoo.co.jp/articles/b49a27d5025fa7c2aa45ee92d3d1f8270bef1888
 - 堺雅人は乃木・F・劉（リュウ）の3役。劉は16話で生きていたと判明したシンシーの諜報員 — https://ciatr.jp/topics/339167
 - 堺雅人：前作で完結したと思っていたが、新しい台本で謎が終わっていないと分かった。今回は乃木の正体が知られているので乃木が物語を引っ張る — https://www.walkerplus.com/article/1338641/
 - 福澤克雄：前作は序章にすぎない、前作の小さな違和感が次の扉を開く鍵になる — https://www.walkerplus.com/article/1301703/
