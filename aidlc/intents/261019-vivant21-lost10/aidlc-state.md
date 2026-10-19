@@ -9,7 +9,9 @@
 - [x] 1. Inception：依頼で作品・本数がはっきりしているので、ゲート1は承認とみなした
 - [x] 2. Construction（下の表）
 - [x] ゲート2：10/19 オーナー承認（Approve）
-- [ ] **3. Operation：オーナーの公開待ち**（VIVANT 18:00・LOST10 21:00）→ URLの記録 → 告知URLの確定
+- [x] 3.1 公開：10/20 00:20（VIVANT）・00:21（LOST10）
+- [x] 3.2 記録：`records/published.md`、X告知文にURLを入れた
+- [ ] **LOST10 の修正待ち（オーナー）**：末尾の仮の文をVIVANTのURLに差し替え、タグ `#ドラマ倶楽部` を追加
 
 ## Unit
 

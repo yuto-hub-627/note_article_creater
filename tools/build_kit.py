@@ -68,6 +68,11 @@ def main(day_dir):
         data = base64.b64encode(img.read_bytes()).decode() if img.is_file() else ""
         arts.append((info, body, data))
     arts.sort(key=lambda a: a[0].get("公開", ""))
+    # 仮の文が残ったままのキットは作らない（10/19 LOST10 で仮の文がそのまま公開された）
+    for info, body, _ in arts:
+        hit = re.search(r"公開後に入れる|\[[^\]]*URL\]|TODO", body)
+        if hit:
+            sys.exit(f"仮の文が残ってる：{info.get('タイトル')} … {hit.group(0)}")
     posts = x_posts(ROOT / "x" / f"{date}.md")
 
     cards = []
