@@ -1,0 +1,12 @@
+{
+  "VIVANT": {
+    "title": "VIVANT", "slot": "TBS 日21時",
+    "bg": "#000000", "fg": "#FF706A", "sub": "#FF706A",
+    "accent": "#FF706A", "on_accent": "#000000", "mark": "#383838"
+  },
+  "LOST10": {
+    "title": "LOST10", "slot": "TBS 金22時",
+    "bg": "#F5F5F3", "diagonal": "#DDDDDB", "fg": "#0A0A0E", "sub": "#0A0A0E",
+    "accent": "#2A6A5E", "on_accent": "#FFFFFF"
+  }
+}
