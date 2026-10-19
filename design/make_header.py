@@ -3,7 +3,8 @@
 使い方:
   python3 design/make_header.py <作品キー> "<帯の文字>" <出力先.png> [--mark 21]
 
-作品ごとの色と放送枠は design/shows.json に書く。--mark を付けると話数の透かしを入れる。
+作品ごとの色と放送枠は design/shows.json に書く。
+感想の画像は --mark で話数の透かし（#N）を入れる（このとき斜めの帯は入れない）。
 96px・211px に縮めたプレビューも同じフォルダに書き出す。
 """
 import argparse
@@ -38,12 +39,15 @@ def make(show, label, out, mark=None):
     im = Image.new("RGB", (W, H), s["bg"])
     d = ImageDraw.Draw(im)
 
-    # 大きな色面は1つだけ：斜めの帯か、話数の透かし
-    if s.get("diagonal"):
-        d.polygon([(665, 0), (W, 0), (W, H), (385, H)], fill=s["diagonal"])
-    if mark and s.get("mark"):
+    # 大きな色面は1つだけ：感想（話数あり）は話数の透かし、それ以外は斜めの帯
+    if mark:
         f = font(SANS, 560, 900)
-        d.text((320, 300), f"#{mark}", font=f, fill=s["mark"], anchor="lt")
+        text = f"#{mark}"
+        # 2桁は左端320から右へはみ出す。1桁は右端が1215にそろう（これまでの画像と同じ位置）
+        x = max(320, 1215 - d.textlength(text, font=f))
+        d.text((x, 300), text, font=f, fill=s.get("mark", s.get("diagonal")), anchor="lt")
+    elif s.get("diagonal"):
+        d.polygon([(665, 0), (W, 0), (W, H), (385, H)], fill=s["diagonal"])
 
     small = font(SANS, 36, 700)
     d.text((70, 82), "ドラマ倶楽部", font=small, fill=s["sub"], anchor="lm")
