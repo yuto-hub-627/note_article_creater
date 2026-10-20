@@ -1,9 +1,10 @@
-"""その日の入稿キット（HTML）を作る。
+"""入稿キット（HTML）を作る。
 
-使い方: python3 tools/build_kit.py articles/2026-10-19
+使い方: python3 tools/build_kit.py articles/2026-10-20 articles/2026-10-21 ...
 
 articles/<日付>/*.md（先頭に --- で囲んだ公開情報）と x/<日付>.md を読み、
-コピーボタン付きのページを articles/<日付>/kit.html に書き出す。
+コピーボタン付きのページを kit/kit.html に書き出す（Artifact は毎回このファイルで同じURLに更新する）。
+本文に TODO(放送後) が残っている記事は「下書き」として表示し、コピーボタンを出さない。
 """
 import base64
 import html
@@ -58,25 +59,34 @@ def x_posts(path):
     return re.findall(r"^## (.+?)\n+```\n(.*?)```", t, re.S | re.M)
 
 
-def main(day_dir):
-    day = Path(day_dir)
-    date = day.name
-    arts = []
-    for p in sorted(day.glob("*.md")):
-        info, body = parse(p.read_text(encoding="utf-8"))
-        img = day / info.get("見出し画像", "")
-        data = base64.b64encode(img.read_bytes()).decode() if img.is_file() else ""
-        arts.append((info, body, data))
+def main(day_dirs):
+    arts, posts = [], []
+    for day_dir in day_dirs:
+        day = Path(day_dir)
+        for p in sorted(day.glob("*.md")):
+            info, body = parse(p.read_text(encoding="utf-8"))
+            img = day / info.get("見出し画像", "")
+            data = base64.b64encode(img.read_bytes()).decode() if img.is_file() else ""
+            arts.append((info, body, data))
+        posts += x_posts(ROOT / "x" / f"{day.name}.md")
     arts.sort(key=lambda a: a[0].get("公開", ""))
-    posts = x_posts(ROOT / "x" / f"{date}.md")
+    # 仮の文が残ったままのキットは作らない（10/19 LOST10 で仮の文がそのまま公開された）
+    for info, body, _ in arts:
+        hit = re.search(r"公開後に入れる|\[[^\]]*URL\]", body)
+        if hit:
+            sys.exit(f"仮の文が残ってる：{info.get('タイトル')} … {hit.group(0)}")
+    date = f"{Path(day_dirs[0]).name} 〜 {Path(day_dirs[-1]).name}" if len(day_dirs) > 1 else Path(day_dirs[0]).name
 
     cards = []
     for n, (info, body, data) in enumerate(arts):
         when = info.get("公開", "")
+        draft = "TODO" in body
+        state = '<span class="pill draft">下書き：放送後に仕上げる</span>' if draft else '<span class="pill ready">入稿できる</span>'
+        copy_body = "" if draft else f'<button type="button" class="primary" data-rich="b{n}">本文をコピー</button>'
         cards.append(f"""
-<section class="art" id="a{n}">
+<section class="art{' is-draft' if draft else ''}" id="a{n}">
   <header class="art-head">
-    <p class="when"><span class="time">{html.escape(when[-5:])}</span> 公開 <span class="date">{html.escape(when[:10])}</span></p>
+    <p class="when"><span class="date">{html.escape(when[5:10].replace('-', '/'))}</span> <span class="time">{html.escape(when[-5:])}</span> 公開 {state}</p>
     <h2 class="art-title">{html.escape(info.get('タイトル',''))}</h2>
   </header>
   <div class="grid">
@@ -88,7 +98,7 @@ def main(day_dir):
       <div><dt>マガジン</dt><dd><span class="val">{html.escape(info.get('マガジン',''))}</span></dd></div>
     </dl>
   </div>
-  <div class="body-bar"><span>本文</span><button type="button" class="primary" data-rich="b{n}">本文をコピー</button></div>
+  <div class="body-bar"><span>本文</span>{copy_body}</div>
   <article class="body" id="b{n}">{to_html(body)}</article>
 </section>""")
 
@@ -97,7 +107,8 @@ def main(day_dir):
 <pre class="val" id="x{i}">{html.escape(t.strip())}</pre></div>""" for i, (h, t) in enumerate(posts))
 
     page = TEMPLATE.replace("{{DATE}}", date).replace("{{CARDS}}", "\n".join(cards)).replace("{{XS}}", xs)
-    out = day / "kit.html"
+    out = ROOT / "kit" / "kit.html"
+    out.parent.mkdir(exist_ok=True)
     out.write_text(page, encoding="utf-8")
     print(out)
 
@@ -120,7 +131,12 @@ body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:
 .top p{margin:4px 0 0;color:var(--muted)}
 .art{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:20px;display:flex;flex-direction:column;gap:16px;min-width:0}
 .when{margin:0;color:var(--muted);font-size:13px;letter-spacing:.04em}
-.time{font-family:var(--serif);font-weight:900;font-size:26px;color:var(--ink);font-variant-numeric:tabular-nums;margin-right:4px}
+.time,.date{font-family:var(--serif);font-weight:900;font-size:26px;color:var(--ink);font-variant-numeric:tabular-nums;margin-right:4px}
+.date{font-size:18px}
+.pill{display:inline-block;font-size:12px;font-weight:700;border-radius:999px;padding:1px 10px;margin-left:6px;vertical-align:middle;letter-spacing:.02em}
+.pill.ready{background:var(--mustard);color:var(--on-mustard)}
+.pill.draft{border:1px dashed var(--muted);color:var(--muted)}
+.is-draft .body{opacity:.75}
 .art-title{font-family:var(--serif);font-size:clamp(18px,2.6vw,22px);margin:2px 0 0;text-wrap:balance}
 .grid{display:grid;grid-template-columns:minmax(0,320px) minmax(0,1fr);gap:20px}
 @media (max-width:680px){.grid{grid-template-columns:minmax(0,1fr)}}
@@ -168,4 +184,4 @@ document.addEventListener('click',async e=>{
 """
 
 if __name__ == "__main__":
-    main(sys.argv[1])
+    main(sys.argv[1:])
