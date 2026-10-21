@@ -21,6 +21,7 @@
 | 10/20 00:20 | VIVANT 21話 感想｜前作の追っ手チンギスが救世主に（ネタバレ） | https://note.com/dramaclub/n/nbc4d4e213207 | | |
 | 10/20 00:21 | LOST10 1話 感想｜受取人は亜矢、遭難が事件に変わる（ネタバレ） | https://note.com/dramaclub/n/nf55d76cab71b | | |
 | 10/20 23:45 | kiDnap GAME 3話 感想｜救えるのは一人だけ（ネタバレ） | https://note.com/dramaclub/n/nc24bb4d26cb7 | | |
+| 10/21 11:17 | 南田南弁護士は天才肌 1話 感想｜回転扉がエスカレーターに（ネタバレ） | https://note.com/dramaclub/n/n523c5698879b | | |
 
 ## 10/16〜10/18（10/19 に確認）
 
