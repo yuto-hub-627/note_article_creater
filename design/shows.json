@@ -1,81 +1,179 @@
 {
   "_説明": "色は公開済みの見出し画像から抜き出したもの。'仮' と書いた作品は、ローカル時代の作り置きの色がわからないので新しく決めた色（オーナーの作り置きがあればそちらに合わせて直す）",
-
   "VIVANT": {
-    "title": "VIVANT", "slot": "TBS 日21時", "font": "serif",
-    "bg": "#000000", "fg": "#FF706A", "sub": "#FF706A",
-    "accent": "#FF706A", "on_accent": "#000000", "mark": "#383838"
+    "title": "VIVANT",
+    "slot": "TBS 日21時",
+    "font": "serif",
+    "bg": "#000000",
+    "fg": "#FF706A",
+    "sub": "#FF706A",
+    "accent": "#FF706A",
+    "on_accent": "#000000",
+    "mark": "#383838"
   },
   "LOST10": {
-    "title": "LOST10", "slot": "TBS 金22時", "font": "serif",
-    "bg": "#F5F5F3", "diagonal": "#DDDDDB", "fg": "#0A0A0E", "sub": "#0A0A0E",
-    "accent": "#2A6A5E", "on_accent": "#FFFFFF", "mark": "#DDDDDB"
+    "title": "LOST10",
+    "slot": "TBS 金22時",
+    "font": "serif",
+    "bg": "#F5F5F3",
+    "diagonal": "#DDDDDB",
+    "fg": "#0A0A0E",
+    "sub": "#0A0A0E",
+    "accent": "#2A6A5E",
+    "on_accent": "#FFFFFF",
+    "mark": "#DDDDDB"
   },
   "kyumei": {
-    "title": "救命病棟24時", "slot": "フジ 月21時", "font": "sans",
-    "bg": "#0E1E3C", "fg": "#FFFFFF", "sub": "#FFFFFF",
-    "accent": "#FF8B3C", "on_accent": "#0E1E3C", "mark": "#263450"
+    "title": "救命病棟24時",
+    "slot": "フジ 月21時",
+    "font": "sans",
+    "bg": "#0E1E3C",
+    "fg": "#FFFFFF",
+    "sub": "#FFFFFF",
+    "accent": "#FF8B3C",
+    "on_accent": "#0E1E3C",
+    "mark": "#263450"
   },
   "iroha": {
-    "title": "いろはの恋は\n時代をかける", "slot": "TBS 火22時", "font": "serif", "title_size": 128,
-    "bg": "#18C1E5", "fg": "#0A1E3A", "sub": "#0A1E3A",
-    "accent": "#E7C908", "on_accent": "#0A1E3A", "mark": "#16B4D8"
+    "title": "いろはの恋は\n時代をかける",
+    "slot": "TBS 火22時",
+    "font": "serif",
+    "title_size": 128,
+    "bg": "#18C1E5",
+    "fg": "#0A1E3A",
+    "sub": "#0A1E3A",
+    "accent": "#E7C908",
+    "on_accent": "#0A1E3A",
+    "mark": "#16B4D8"
   },
   "kidnap": {
-    "title": "kiDnap GAME", "slot": "フジ 火21時", "font": "archivo",
-    "bg": "#4A443C", "fg": "#F3EFE7", "sub": "#F3EFE7",
-    "accent": "#F3EFE7", "on_accent": "#4A443C", "mark": "#38322C"
+    "title": "kiDnap GAME",
+    "slot": "フジ 火21時",
+    "font": "archivo",
+    "bg": "#4A443C",
+    "fg": "#F3EFE7",
+    "sub": "#F3EFE7",
+    "accent": "#F3EFE7",
+    "on_accent": "#4A443C",
+    "mark": "#38322C"
   },
   "merry": {
-    "title": "メリーベリーラブ", "slot": "日テレ 水22時", "font": "rounded",
-    "bg": "#F1F7FB", "fg": "#991C18", "sub": "#991C18",
-    "accent": "#5E7934", "on_accent": "#FFFFFF", "mark": "#E6E4EA"
+    "title": "メリーベリーラブ",
+    "slot": "日テレ 水22時",
+    "font": "rounded",
+    "bg": "#F1F7FB",
+    "fg": "#991C18",
+    "sub": "#991C18",
+    "accent": "#5E7934",
+    "on_accent": "#FFFFFF",
+    "mark": "#E6E4EA"
   },
   "politicalpan": {
-    "title": "ポリティカルパン", "slot": "フジ 水22時", "font": "sans",
-    "bg": "#A50E1C", "fg": "#FFFFFF", "sub": "#FFFFFF",
-    "accent": "#FFC300", "on_accent": "#A50E1C", "mark": "#7C0A14"
+    "title": "ポリティカルパン",
+    "slot": "フジ 水22時",
+    "font": "sans",
+    "bg": "#A50E1C",
+    "fg": "#FFFFFF",
+    "sub": "#FFFFFF",
+    "accent": "#FFC300",
+    "on_accent": "#A50E1C",
+    "mark": "#7C0A14"
   },
   "hakone": {
-    "title": "俺たちの箱根駅伝", "slot": "日テレ 土21時", "font": "sans",
-    "bg": "#1C1A1E", "fg": "#E3C36E", "sub": "#E3C36E",
-    "accent": "#F3564A", "on_accent": "#1C1A1E", "mark": "#302A26"
+    "title": "俺たちの箱根駅伝",
+    "slot": "日テレ 土21時",
+    "font": "sans",
+    "bg": "#1C1A1E",
+    "fg": "#E3C36E",
+    "sub": "#E3C36E",
+    "accent": "#F3564A",
+    "on_accent": "#1C1A1E",
+    "mark": "#302A26"
   },
-
   "minamida": {
     "_仮": true,
-    "title": "南田南弁護士は\n天才肌", "slot": "カンテレ 月22時", "font": "sans", "title_size": 128,
-    "bg": "#0F4C5C", "fg": "#FFFFFF", "sub": "#FFFFFF",
-    "accent": "#F2B134", "on_accent": "#0F4C5C", "mark": "#16596A"
+    "title": "南田南弁護士は\n天才肌",
+    "slot": "カンテレ 月22時",
+    "font": "sans",
+    "title_size": 128,
+    "bg": "#0F4C5C",
+    "fg": "#FFFFFF",
+    "sub": "#FFFFFF",
+    "accent": "#F2B134",
+    "on_accent": "#0F4C5C",
+    "mark": "#16596A"
   },
   "meoto": {
     "_仮": true,
-    "title": "波うららかに、\nめおと日和", "slot": "フジ 木22時", "font": "serif", "title_size": 128,
-    "bg": "#EAF2F8", "fg": "#1D3557", "sub": "#1D3557",
-    "accent": "#C8506A", "on_accent": "#FFFFFF", "mark": "#D8E5EF"
+    "title": "波うららかに、\nめおと日和",
+    "slot": "フジ 木22時",
+    "font": "serif",
+    "title_size": 128,
+    "bg": "#EAF2F8",
+    "fg": "#1D3557",
+    "sub": "#1D3557",
+    "accent": "#C8506A",
+    "on_accent": "#FFFFFF",
+    "mark": "#D8E5EF"
   },
   "borders": {
     "_仮": true,
-    "title": "ボーダーズ", "slot": "テレ東 金21時", "font": "sans",
-    "bg": "#22252E", "fg": "#F2F2F0", "sub": "#F2F2F0",
-    "accent": "#E63946", "on_accent": "#FFFFFF", "mark": "#30343F"
+    "title": "ボーダーズ",
+    "slot": "テレ東 金21時",
+    "font": "sans",
+    "bg": "#22252E",
+    "fg": "#F2F2F0",
+    "sub": "#F2F2F0",
+    "accent": "#E63946",
+    "on_accent": "#FFFFFF",
+    "mark": "#30343F"
   },
   "aniimouto": {
     "_仮": true,
-    "title": "あにいもうと", "slot": "テレ朝 土22時", "font": "serif",
-    "bg": "#F3EEF4", "fg": "#3B2457", "sub": "#3B2457",
-    "accent": "#3B2457", "on_accent": "#FFFFFF", "mark": "#E4DAE8"
+    "title": "あにいもうと",
+    "slot": "テレ朝 土22時",
+    "font": "serif",
+    "bg": "#F3EEF4",
+    "fg": "#3B2457",
+    "sub": "#3B2457",
+    "accent": "#3B2457",
+    "on_accent": "#FFFFFF",
+    "mark": "#E4DAE8"
   },
   "moupapa": {
     "_仮": true,
-    "title": "もうパパ！", "slot": "ABC 日22時15分", "font": "rounded",
-    "bg": "#FFD23F", "fg": "#1B1B1B", "sub": "#1B1B1B",
-    "accent": "#1B1B1B", "on_accent": "#FFD23F", "mark": "#F2C42C"
+    "title": "もうパパ！",
+    "slot": "ABC 日22時15分",
+    "font": "rounded",
+    "bg": "#FFD23F",
+    "fg": "#1B1B1B",
+    "sub": "#1B1B1B",
+    "accent": "#1B1B1B",
+    "on_accent": "#FFD23F",
+    "mark": "#F2C42C"
   },
   "hide": {
     "_仮": true,
-    "title": "ハイド＆シーク", "slot": "日テレ 日22時30分", "font": "sans",
-    "bg": "#0B132B", "fg": "#E0FBFC", "sub": "#E0FBFC",
-    "accent": "#5BC0BE", "on_accent": "#0B132B", "mark": "#1C2541"
+    "title": "ハイド＆シーク",
+    "slot": "日テレ 日22時30分",
+    "font": "sans",
+    "bg": "#0B132B",
+    "fg": "#E0FBFC",
+    "sub": "#E0FBFC",
+    "accent": "#5BC0BE",
+    "on_accent": "#0B132B",
+    "mark": "#1C2541"
+  },
+  "analog": {
+    "_仮": true,
+    "title": "アナログナース",
+    "slot": "テレ朝 木21時",
+    "font": "sans",
+    "bg": "#F4F7F6",
+    "fg": "#0B4A58",
+    "sub": "#0B4A58",
+    "accent": "#E86A33",
+    "on_accent": "#FFFFFF",
+    "mark": "#E3ECEA"
   }
 }
