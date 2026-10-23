@@ -69,6 +69,9 @@ def main(day_dirs):
             data = base64.b64encode(img.read_bytes()).decode() if img.is_file() else ""
             arts.append((info, body, data))
         posts += x_posts(ROOT / "x" / f"{day.name}.md")
+    # 公開済み（records/published.md にタイトルがある）記事は出さない
+    published = (ROOT / "records" / "published.md").read_text(encoding="utf-8")
+    arts = [a for a in arts if a[0].get("タイトル", "") not in published]
     arts.sort(key=lambda a: a[0].get("公開", ""))
     # 仮の文が残ったままのキットは作らない（10/19 LOST10 で仮の文がそのまま公開された）
     for info, body, _ in arts:
