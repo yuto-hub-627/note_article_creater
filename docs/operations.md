@@ -59,5 +59,5 @@ python3 design/make_header.py <作品キー> "第1話 感想" articles/<日付>/
 python3 tools/build_kit.py articles/<日付> [articles/<日付> ...]
 ```
 
-- `articles/<日付>/*.md` と `x/<日付>.md` から、コピーボタン付きのページ `kit/kit.html` を作る。Artifact として公開し、毎回同じURL（https://claude.ai/artifact/Q37113JeuZwsmG77ZMGuJ8）に更新する。放送後に仕上げる下書きは「下書き」と表示され、コピーできない
+- `articles/<日付>/*.md` と `x/<日付>.md` から、コピーボタン付きのページ `kit/kit.html` を作る。Artifact として公開し、毎回同じURL（https://claude.ai/artifact/Q37113JeuZwsmG77ZMGuJ8）に更新する。放送後に仕上げる下書き（TODO が残っている記事）とそのX告知は出さない。放送が終わって結末と反響がそろった完成品だけを載せる
 - 見出し画像のPNGは、チャットにファイルとして送る（Artifact のページからはダウンロードできないため）

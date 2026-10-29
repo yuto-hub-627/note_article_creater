@@ -4,7 +4,7 @@
 
 articles/<日付>/*.md（先頭に --- で囲んだ公開情報）と x/<日付>.md を読み、
 コピーボタン付きのページを kit/kit.html に書き出す（Artifact は毎回このファイルで同じURLに更新する）。
-本文に TODO(放送後) が残っている記事は「下書き」として表示し、コピーボタンを出さない。
+本文に TODO(放送後) が残っている記事（放送後に仕上げる下書き）はキットに出さない（2026-10-30 オーナーの指示）。
 """
 import base64
 import html
@@ -72,6 +72,13 @@ def main(day_dirs):
     # 公開済み（records/published.md にタイトルがある）記事は出さない
     published = (ROOT / "records" / "published.md").read_text(encoding="utf-8")
     arts = [a for a in arts if a[0].get("タイトル", "") not in published]
+    # 放送後に仕上げる下書き（TODO が残っている記事）は出さない。その記事のX告知も出さない
+    drafts = [a for a in arts if "TODO" in a[1]]
+    arts = [a for a in arts if "TODO" not in a[1]]
+    for d in drafts:
+        name = d[0].get("タイトル", "").split(" ")[0]
+        if name:
+            posts = [(h, x) for h, x in posts if name not in h]
     arts.sort(key=lambda a: a[0].get("公開", ""))
     # 仮の文が残ったままのキットは作らない（10/19 LOST10 で仮の文がそのまま公開された）
     for info, body, _ in arts:
